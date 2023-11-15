@@ -95,5 +95,5 @@ The user roles and permissions guide helps administrators set up roles and permi
 
 
 
-![image](https://github.com/Bhavesh-Kapur/Car-Showroom-Management-System/assets/143421234/4d8a79e5-b491-4a5f-bf44-4cb68ff6f5aa)
+![Screenshot 2023-11-15 235729](https://github.com/samariium/Car-Showroom-Management-System/assets/143421234/f745c4fc-52f4-48d6-aab6-5990cf65f758)
 
