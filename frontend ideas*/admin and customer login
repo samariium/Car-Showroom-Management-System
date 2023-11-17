@@ -98,4 +98,28 @@
         function showAdminLoginForm() {
             document.getElementById("adminLoginForm").style.display = "block";
             document.getElementById("customerLoginForm").style.display = "none";
-        
+        }
+
+        function showCustomerLoginForm() {
+            document.getElementById("adminLoginForm").style.display = "none";
+            document.getElementById("customerLoginForm").style.display = "block";
+        }
+
+        function adminLogin() {
+            var adminUsername = document.getElementById("adminUsername").value;
+            var adminPassword = document.getElementById("adminPassword").value;
+
+            // Admin login logic (replace with actual admin login logic)
+            alert("Admin login not implemented in this example.");
+        }
+
+        function customerLogin() {
+            var customerUsername = document.getElementById("customerUsername").value;
+            var customerPassword = document.getElementById("customerPassword").value;
+
+            // Customer login logic (replace with actual customer login logic)
+            alert("Customer login not implemented in this example.");
+        }
+    </script>
+</body>
+</html>
