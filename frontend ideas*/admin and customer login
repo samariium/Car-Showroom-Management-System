@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showroom Management Login</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0e0e0; /* Gray background color */
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #adminLoginForm, #customerLoginForm {
+            display: none;
+        }
+
+        #adminLoginLink, #customerLoginLink {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #adminLoginLink:hover, #customerLoginLink:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 style="text-align: center; color: #333;">Showroom Management Login</h2>
+
+        <div id="adminLoginForm">
+            <form id="adminLogin">
+                <label for="adminUsername">Admin Username:</label>
+                <input type="text" id="adminUsername" name="adminUsername" required>
+
+                <label for="adminPassword">Admin Password:</label>
+                <input type="password" id="adminPassword" name="adminPassword" required>
+
+                <button type="button" onclick="adminLogin()">Admin Login</button>
+            </form>
+        </div>
+
+        <div id="customerLoginForm">
+            <form id="customerLogin">
+                <label for="customerUsername">Customer Username:</label>
+                <input type="text" id="customerUsername" name="customerUsername" required>
+
+                <label for="customerPassword">Customer Password:</label>
+                <input type="password" id="customerPassword" name="customerPassword" required>
+
+                <button type="button" onclick="customerLogin()">Customer Login</button>
+            </form>
+        </div>
+
+        <p style="text-align: center; color: #333;">Not a member? <a id="adminLoginLink" onclick="showAdminLoginForm()">Admin Login</a> | <a id="customerLoginLink" onclick="showCustomerLoginForm()">Customer Login</a></p>
+    </div>
+
+    <script>
+        function showAdminLoginForm() {
+            document.getElementById("adminLoginForm").style.display = "block";
+            document.getElementById("customerLoginForm").style.display = "none";
+        
