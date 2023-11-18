@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog - Southern Sanandreas MotorCorp</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="{% url 'about' %}" class="logo"><h3>Southern Sanandreas MotorCorp</h3></a>
+            <ul class="nav-link">
+                <li><a href="{% url 'about' %}" style="--i:1;">Home</a></li>
+                <li><a href="{% url 'catalogue' %}" style="--i:3;" class="active">Catalog</a></li>
+                <li><a href="{% url 'featured' %}" style="--i:4;">Featured</a></li>
+                <li><a href="{% url 'contact' %}" style="--i:5;" >Contact</a></li>
+                <li><a href="{% url 'login' %}" style="--i:6;">Login</a></li>
+            </ul>
+            <ul class="social-link">
+                <li><a href="" style="--i:1;"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="" style="--i:2;"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="" style="--i:3;"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="catalog">
+        <div class="container">
+            <h2>Catalogue</h2>
+            <div class="brand-logos">
+                <a href="brand1.html" class="hyundai">
+                    <img src="{% static 'hyundai Background Removed.png' %}" alt="Hyundai Logo" data-brand="Hyundai">
+                    <span class="brand-name">Hyundai</span>
+                </a>
+                
+                <a href="brand1.html" class="honda">
+                    <img src="{% static 'honda.jpeg' %}" alt="Honda Logo" data-brand="Honda">
+                    <span class="brand-name">Honda</span>
+                </a>
+                
+                <a href="brand1.html" class="Mahindra">
+                    <img src="{% static 'mahindra Background Removed.png' %}" alt="Mahindra Logo" data-brand="Mahindra">
+                    <span class="brand-name">Mahindra</span>
+                </a>
+                
+                <a href="brand1.html" class="bmw">
+                    <img src="{% static 'bmw.webp' %}" alt="BMW Logo" data-brand="Bmw">
+                    <span class="brand-name">BMW</span>
+                </a>
+                <a href="brand1.html" class="mercedes">
+                    <img src="{% static 'mercedes Background Removed.png' %}" alt="mercedes Logo" data-brand="mercedes">
+                    <span class="brand-name">Mercedes</span>
+                </a>
+                <a href="brand1.html" class="tatamotors">
+                    <img src="{% static 'tata motors.jpeg' %}" alt="tatamotors Logo" data-brand="tatamotors">
+                    <span class="brand-name">Tata Motors</span>
+                </a>
+                <a href="brand1.html" class="toyota">
+                    <img src="{% static 'toyota.webp' %}" alt="toyota Logo" data-brand="toyota">
+                    <span class="brand-name">Toyota</span>
+                </a>
+                <a href="brand1.html" class="kia">
+                    <img src="{% static 'kia.webp' %}" alt="kia Logo" data-brand="kia">
+                    <span class="brand-name">KIA</span>
+                </a>
+                <a href="brand1.html" class="morris garages">
+                    <img src="{% static 'morris garages.jpeg' %}" alt="morris garages Logo" data-brand="morris garages">
+                    <span class="brand-name">Morries Garages MG</span>
+                </a>
+                <a href="brand1.html" class="skoda">
+                    <img src="{% static 'Skoda .jpeg' %}" alt="skoda Logo" data-brand="skoda">
+                    <span class="brand-name">Skoda</span>
+                </a>
+                <a href="brand1.html" class="audi">
+                    <img src="{% static 'audi.png' %}" alt="audi Logo" data-brand="audi">
+                    <span class="brand-name">Audi</span>
+                </a>
+                <a href="brand1.html" class="jeep">
+                    <img src="{% static 'jeep.png' %}" alt="jeep Logo" data-brand="jeep">
+                    <span class="brand-name">JEEP</span>
+                </a>
+                <!-- Add more brand items as needed -->
+            </div>
+            
+            <!-- <div class="brand-logos">
+                <div class="brand-item">
+                    <a href="brand1.html">
+                        <img src="car logos/hyundai Background Removed.png" alt="Hyundai Logo" data-brand="Hyundai">
+                        <span class="brand-name">Hyundai</span>
+                    </a>
+                </div>
+                <div class="brand-item">
+                    <a href="brand1.html">
+                        <img src="car logos/honda.jpeg" alt="Hyundai Logo" data-brand="Hyundai">
+                        <span class="brand-name">Hyundai</span>
+                    </a>
+                </div>
+                <div class="brand-item">
+                    <a href="brand1.html">
+                        <img src="car logos/mahindra Background Removed.png" alt="Hyundai Logo" data-brand="Hyundai">
+                        <span class="brand-name">Hyundai</span>
+                    </a>
+                </div>
+                Add similar blocks for other brands -->
+            </div> 
+        </div>
+        <div class="sq-box2">hi</div>
+    </section>
+
+</body>
+</html>

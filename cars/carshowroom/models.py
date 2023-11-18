@@ -5,6 +5,7 @@ class Car(models.Model):
     model = models.CharField(max_length=100)
     year = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    img = models.ImageField(upload_to="images/", null=True, default=None)
 
 class Booking(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
@@ -17,3 +18,9 @@ class Customer(models.Model):
     phone=models.IntegerField()
     email=models.CharField(max_length=50)
     address=models.CharField(max_length=200)
+
+class Query(models.Model):
+    name=models.CharField(max_length=100)
+    phone=models.IntegerField()
+    email=models.CharField(max_length=50)
+    doubt=models.CharField(max_length=400)
