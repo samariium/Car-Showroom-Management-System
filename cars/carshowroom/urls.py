@@ -17,4 +17,11 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('adminlogin', views.adminlogin, name='adminlogin'),
     path('viewcontacts', views.viewcontacts, name='viewcontacts'),
+    path('editpage/<str:pk>/', views.editpage, name='editpage'),
+    # path('edit', views.edit, name='edit'),
+    path('viewcustomer', views.viewcustomer, name='viewcustomer'),
+    path('brand/<str:pk>/', views.brand, name="brand"),
+    path('booktestdrive', views.booktestdrive, name="booktestdrive"),
+    path('testdrive', views.testdrive, name="testdrive"),
+    path('booking', views.booking, name="booking"),
 ]

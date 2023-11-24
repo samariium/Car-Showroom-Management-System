@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
-from carshowroom.models import Car,Customer,Query
+from carshowroom.models import Car,Customer,Query,TestDrive,BookingCar
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+import os
 
 # Create your views here.
 def admindashboard(request):
@@ -15,12 +16,13 @@ def addcar(request):
         c.model = request.POST.get('model')
         c.year = request.POST.get('year')
         c.price = request.POST.get('price')
+        c.des = request.POST.get('des')
 
         if len(request.FILES)!= 0:
             c.img = request.FILES['image']
         c.save()
         messages.success(request, f'New Car added to inventory' ,extra_tags='posted')
-        # return redirect('/')
+        return redirect('addcar')
     return render(request, 'addcar.html')
 
     #     make=request.POST.get('make')
@@ -40,21 +42,24 @@ def viewinventory(request):
     return render(request,'viewinventory.html',dic)
 
 
+
 def addcustomer(request):
     if request.method=='POST':
-        name=request.POST.get('name')
-        email=request.POST.get('email')
-        phone=request.POST.get('phone')
-        address=request.POST.get('address')
-        customer=Customer(name=name,phone=phone,email=email,address=address)
-        customer.save()
-        # print(name,email,phone,address)
+        c = Customer()
+        c.name=request.POST.get('name')
+        c.email=request.POST.get('email')
+        c.phone=request.POST.get('phone')
+        c.address=request.POST.get('address')
+        c.save()
+        print(c.name,c.email,c.phone,c.address)
     
     return render(request,'addcustomer.html')
 
 
 def manageorders(request):
-    return render(request,'manageorders.html')
+    c = BookingCar.objects.all()
+    dic={'c':c}
+    return render(request,'manageorders.html', dic)
 
 
 
@@ -115,3 +120,86 @@ def viewcontacts(request):
     return render(request,'viewcontacts.html',dic)
     
     # return render(request, 'viewcontacts.html')
+
+
+def editpage(request, pk):
+    c = Car.objects.get(model=pk)
+
+    if request.method == "POST":
+        if len(request.FILES) != 0:
+            if len(c.img)>0:
+                os.remove(c.img.path)
+            c.img = request.FILES['image']
+        c.make = request.POST.get('make')
+        c.model = request.POST.get('model')
+        c.year = request.POST.get('year')
+        c.price = request.POST.get('price')
+        c.des = request.POST.get('des')
+
+        c.save()
+        messages.success(request, "Car details updated")
+        return redirect('viewinventory')
+    dic={"c":c}
+    return render(request, 'editpage.html', dic)
+
+
+
+def edit(request):
+    redirect('viewinventory')
+
+
+def viewcustomer(request):
+    cust=list(Customer.objects.all())   #Cars.objects.filter(make='hyundai')
+    dic={'cust':cust}
+    print(dic)
+    return render(request, 'viewcustomer.html', dic)
+
+def brand(request, pk):
+    t=pk
+    c=Car.objects.filter(make=pk)
+    dic={'c':c, 't':t}
+    print(dic)
+    return render(request, 'brand.html', dic )
+
+def booktestdrive(request):
+    ci = Car.objects.all()
+    # mv = ci.make
+    # print(mv)
+    dic = {'ci':ci}
+
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        make = request.POST.get('make')
+        model = request.POST.get('model')
+        date = request.POST.get('date')
+        testdrive=TestDrive(name=name,phone=phone,email=email,make=make,model=model,date=date)
+        testdrive.save()
+
+    return render(request, 'booktestdrive.html',dic)
+
+def testdrive(request):   
+    c = TestDrive.objects.all()
+    dic={'c':c}
+    return render(request, 'testdrive.html',dic)
+
+# def editdrive(request):
+
+def booking(request):
+    ci = Car.objects.all()
+    # mv = ci.make
+    # print(mv)
+    dic = {'ci':ci}
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        make = request.POST.get('make')
+        model = request.POST.get('model')
+        date = request.POST.get('date')
+        bookingcar=BookingCar(name=name,phone=phone,email=email,make=make,model=model,date=date)
+        bookingcar.save()
+
+
+    return render(request,"booking.html", dic)

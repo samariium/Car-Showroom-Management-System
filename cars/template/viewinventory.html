@@ -20,6 +20,18 @@
     </header>
 
     <main>
+        {% if messages %}
+        {% for message in messages %}
+        {%if "posted" in message.tags %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
         <div class="content-container">
             <h2>View Inventory</h2>
 
@@ -29,8 +41,9 @@
                         <th>Make</th>
                         <th>Model</th>
                         <th>Year</th>
-                        <!-- <th>Image</th> -->
+                        <th>Image</th>
                         <th>Price</th>
+                        <th>Edit</th>
                         <!-- Add more columns for other car details -->
                     </tr>
                 </thead>
@@ -41,8 +54,16 @@
                             <td>{{ car.make }}</td>
                             <td>{{ car.model }}</td>
                             <td>{{ car.year }}</td>
-                            <!-- <td><img src="{{ car.image.url }}" alt="{{ car.make }} {{ car.model }}"></td> -->
+                            {% if car.img %}
+                                <td ><img src="{{ car.img.url }}" alt=""></td>
+                            {% else %}
+                                <td><img src="" alt="img error"></td>
+                            {% endif %}
                             <td>{{ car.price }}</td>
+                            <td>
+                                <a href="{% url 'editpage' car.model %}" class="btn btn-success button">Edit</a>
+                            </td>
+                           
                             <!-- Add more columns for other car details -->
                         </tr>
                     {% endfor %}

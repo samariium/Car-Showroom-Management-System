@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Test Drive - Southern Sanandreas Motor Corp</title>
+    <link rel="stylesheet" href="{% static 'booktestdrive.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logoname">
+            <a href="{% url 'about' %}" class="logo"><h3>Southern Sanandreas MotorCorp</h3></a>
+            </div>
+            <div class="navspace">
+            <ul class="nav-link">
+                <li><a href="{% url 'about' %}" style="--i:1;">Home</a></li>
+                <li><a href="{% url 'catalogue' %}" style="--i:3;">Catalog</a></li>
+                <li><a href="{% url 'featured' %}" style="--i:4;">Featured</a></li>
+                <li><a href="{% url 'contact' %}" style="--i:5;" class="active">Contact</a></li>
+                <li><a href="{% url 'login' %}" style="--i:6;">Login</a></li>
+            </ul>
+            </div>
+            <ul class="social-link">
+                <li><a href="" style="--i:1;"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="" style="--i:2;"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="" style="--i:3;"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="test-drive-section">
+        <div class="container">
+            <h2>Book a Test Drive</h2>
+            <p>Experience the thrill firsthand. Schedule a test drive with Southern Sanandreas Motor Corp.</p>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="make">Preferred Car Brand:</label>
+                <select id="make" name="make" required>
+                    {% for ci in ci %}
+                    <option value="{{ci.make}}">{{ci.make}}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="model">Preferred Car Model:</label>
+                <select id="model" name="model" required>
+                    {% for ci in ci %}
+                    <option value="{{ci.model}}">{{ci.model}}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="preferred-date">Preferred Date:</label>
+                <input type="date" id="preferred-date" name="date" required>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="sq-box2">hi</div>
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+</body>
+</html>

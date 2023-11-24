@@ -12,14 +12,20 @@
 <body>
     <nav>
         <div class="container nav-container">
+            <div class="logoname">
             <a href="{% url 'about' %}" class="logo"><h3>Southern Sanandreas MotorCorp</h3></a>
+            </div>
+            <div class="navspace">
             <ul class="nav-link">
                 <li><a href="{% url 'about' %}" style="--i:1;">Home</a></li>
                 <li><a href="{% url 'catalogue' %}" style="--i:3;" class="active">Catalog</a></li>
                 <li><a href="{% url 'featured' %}" style="--i:4;">Featured</a></li>
                 <li><a href="{% url 'contact' %}" style="--i:5;" >Contact</a></li>
-                <li><a href="{% url 'login' %}" style="--i:6;">Login</a></li>
+<!--                 <li><a href="{% url 'login' %}" style="--i:6;">Login</a></li> -->
+                <li><a href="{% url 'booktestdrive' %}" style="--i:5;" class="">Book A Test Drive</a></li>
+                <li><a href="{% url 'booking' %}" style="--i:5;" class="">Book Your Car</a></li>
             </ul>
+            </div>
             <ul class="social-link">
                 <li><a href="" style="--i:1;"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="" style="--i:2;"><i class="fab fa-twitter"></i></a></li>
@@ -32,54 +38,54 @@
         <div class="container">
             <h2>Catalogue</h2>
             <div class="brand-logos">
-                <a href="brand1.html" class="hyundai">
+                <a href="{% url 'brand' 'Hyundai' %}" class="hyundai">
                     <img src="{% static 'hyundai Background Removed.png' %}" alt="Hyundai Logo" data-brand="Hyundai">
                     <span class="brand-name">Hyundai</span>
                 </a>
                 
-                <a href="brand1.html" class="honda">
+                <a href="{% url 'brand' 'Honda' %}" class="honda">
                     <img src="{% static 'honda.jpeg' %}" alt="Honda Logo" data-brand="Honda">
                     <span class="brand-name">Honda</span>
                 </a>
                 
-                <a href="brand1.html" class="Mahindra">
+                <a href="{% url 'brand' 'Mahindra' %}" class="Mahindra">
                     <img src="{% static 'mahindra Background Removed.png' %}" alt="Mahindra Logo" data-brand="Mahindra">
                     <span class="brand-name">Mahindra</span>
                 </a>
                 
-                <a href="brand1.html" class="bmw">
+                <a href="{% url 'brand' 'BMW' %}" class="bmw">
                     <img src="{% static 'bmw.webp' %}" alt="BMW Logo" data-brand="Bmw">
                     <span class="brand-name">BMW</span>
                 </a>
-                <a href="brand1.html" class="mercedes">
+                <!-- <a href="{% url 'brand' 'Mercedes' %}" class="mercedes">
                     <img src="{% static 'mercedes Background Removed.png' %}" alt="mercedes Logo" data-brand="mercedes">
                     <span class="brand-name">Mercedes</span>
-                </a>
-                <a href="brand1.html" class="tatamotors">
+                </a> -->
+                <a href="{% url 'brand' 'Tata Motors' %}" class="tatamotors">
                     <img src="{% static 'tata motors.jpeg' %}" alt="tatamotors Logo" data-brand="tatamotors">
                     <span class="brand-name">Tata Motors</span>
                 </a>
-                <a href="brand1.html" class="toyota">
+                <a href="{% url 'brand' 'Toyota' %}" class="toyota">
                     <img src="{% static 'toyota.webp' %}" alt="toyota Logo" data-brand="toyota">
                     <span class="brand-name">Toyota</span>
                 </a>
-                <a href="brand1.html" class="kia">
+                <a href="{% url 'brand' 'KIA' %}" class="kia">
                     <img src="{% static 'kia.webp' %}" alt="kia Logo" data-brand="kia">
                     <span class="brand-name">KIA</span>
                 </a>
-                <a href="brand1.html" class="morris garages">
+                <a href="{% url 'brand' 'Morris Garages' %}" class="morris garages">
                     <img src="{% static 'morris garages.jpeg' %}" alt="morris garages Logo" data-brand="morris garages">
                     <span class="brand-name">Morries Garages MG</span>
                 </a>
-                <a href="brand1.html" class="skoda">
+                <a href="{% url 'brand' 'Skoda' %}" class="skoda">
                     <img src="{% static 'Skoda .jpeg' %}" alt="skoda Logo" data-brand="skoda">
                     <span class="brand-name">Skoda</span>
                 </a>
-                <a href="brand1.html" class="audi">
+                <a href="{% url 'brand' 'Audi' %}" class="audi">
                     <img src="{% static 'audi.png' %}" alt="audi Logo" data-brand="audi">
                     <span class="brand-name">Audi</span>
                 </a>
-                <a href="brand1.html" class="jeep">
+                <a href="{% url 'brand' 'JEEP' %}" class="jeep">
                     <img src="{% static 'jeep.png' %}" alt="jeep Logo" data-brand="jeep">
                     <span class="brand-name">JEEP</span>
                 </a>
